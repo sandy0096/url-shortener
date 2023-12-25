@@ -1,0 +1,48 @@
+#logo {
+	margin: 100px 0px;
+	text-align: center;
+}
+
+#logo a {
+	font-size: xxx-large;
+	color: rgba(252,70,161);
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	text-decoration-line: none;
+}
+
+#urlForm {
+	display: flex;
+	justify-content: center;
+}
+
+#urlinput {
+	height: 40px;
+	width: 40%;
+	padding: 0 15px;
+}
+
+#shortbutton {
+	height: 45px;
+	margin: 0 10px;
+}
+
+#urloutput {
+	font-size: xx-large;
+	text-align: center;
+}
+
+#urlResultBox {
+	margin: 50px 0;
+	text-align: center;
+	visibility: hidden;
+}
+
+#urlResultBox span {
+	font-size: large;
+}
+
+#urlResultBox button {
+	font-size: large;
+	margin: 0 20px;
+	cursor: pointer;
+}
