@@ -5,39 +5,42 @@ import { urlModel } from "../models/urlModel.js";
 const nanoid = customAlphabet('abcdefghijklmnopqrstuvwxyzQWERTYUIOPLKJHGFDSAZXCVBNM', 5);
 
 const shortURL = async (req, res) => {
+    let result = {}
     const { origUrl } = req.body;
     const urlData = await urlModel.findOne({ origUrl });
     if (urlData) {
-        res.json({
+        result = {
             message: "Url already exist",
             response: {
-                shortUrl: urlData.shortUrl
+                shortUrl: urlData.shortUrl,
+                origUrl: urlData.origUrl,
             },
             type: "success"
-        })
+        }
     } else {
         const id = nanoid();
         const shortUrl = `${process.env.BASE}/${id}`
         const newURL = new urlModel({ id, shortUrl, origUrl });
         try {
             newURL.save();
-            res.json({
+            result = {
                 message: "url creation success",
-                response: { shortUrl },
+                response: { shortUrl, origUrl },
                 type: "success"
-            });
+            }
         } catch (err) {
-            res.json({
+            result = {
                 message: 'unable to create url',
                 type: "failure",
                 response: null
-            });
+            }
         }
     }
-
+    res.render('pages/shortener', result);
 }
 
 const redirecToURL = async (req, res) => {
+    console.log('byrraj');
     try {
         const urlData = await urlModel.findOne({ id: req.params.urlId });
         if (urlData) {
@@ -55,8 +58,23 @@ const redirecToURL = async (req, res) => {
     }
 }
 
+const redirectToPrivacyPolicy = (req, res) => {
+    return res.render('pages/privacy-policy');
+}
+
+const redirectToHome = (req, res) => {
+    res.render('pages/index');
+}
+
+const redirectToTerms = (req, res) => {
+    res.render('pages/terms-and-conditions');
+}
+
 
 export {
     shortURL,
-    redirecToURL
+    redirecToURL,
+    redirectToPrivacyPolicy,
+    redirectToHome,
+    redirectToTerms
 }

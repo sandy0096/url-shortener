@@ -1,0 +1,21 @@
+<%- include('../partials/head') %>
+
+<body>
+    <header>
+        <div id="logo">
+            <a href="http://localhost:8080">short URL</a>
+        </div>
+    </header>
+    <main>
+        <section>
+            <div id="urlResultBox">
+                <span id="answer"><%= type === 'failure' ? message : response.shortUrl %></span>
+                <button onclick="copyLinkToClipboard();">Copy</button>
+                <a href="http://localhost:8080">Try New</a>
+            </div>
+        </section>
+    </main>
+    <script defer type="text/javascript" src="index.js"></script>
+</body>
+
+<%- include('../partials/footer') %>

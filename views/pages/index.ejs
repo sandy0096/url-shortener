@@ -1,0 +1,20 @@
+<%- include('../partials/head') %>
+
+<body>
+    <header>
+        <div class="heading">
+            <a class="heading__website-name" href="http://localhost:8080">Tapme.at</a>
+        </div>
+    </header>
+    <main>
+        <section id="main">
+            <form action="/short-url" class="form" method="post">
+                <input class="form__url-input" type="text" name="origUrl" placeholder="paste link here" />
+                <button class="short-button" type="submit">Short</button>
+            </form>
+        </section>
+    </main>
+    <script defer type="text/javascript" src="index.js"></script>
+</body>
+
+<%- include('../partials/footer') %>

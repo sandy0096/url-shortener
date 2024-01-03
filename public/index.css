@@ -1,27 +1,32 @@
-#logo {
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.heading {
 	margin: 100px 0px;
 	text-align: center;
 }
 
-#logo a {
+.heading__website-name {
 	font-size: xxx-large;
-	color: rgba(252,70,161);
-	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	color: rgb(79, 111, 82);
 	text-decoration-line: none;
 }
 
-#urlForm {
+.form {
 	display: flex;
 	justify-content: center;
 }
 
-#urlinput {
+.form__url-input {
 	height: 40px;
 	width: 40%;
 	padding: 0 15px;
 }
 
-#shortbutton {
+.short-button {
 	height: 45px;
 	margin: 0 10px;
 }
@@ -34,7 +39,6 @@
 #urlResultBox {
 	margin: 50px 0;
 	text-align: center;
-	visibility: hidden;
 }
 
 #urlResultBox span {
@@ -45,4 +49,30 @@
 	font-size: large;
 	margin: 0 20px;
 	cursor: pointer;
+}
+
+#bottom-nav {
+	height: 80px;
+	width: 100%;
+	text-align: right;
+	position: absolute;
+	bottom: 0;
+	vertical-align: middle;
+	background-color: rgb(79, 111, 82);
+}
+
+#bottom-nav ul li {
+	display: inline-block;
+	margin: 14px 30px;
+	color: white;
+}
+
+#bottom-nav ul li a:link {
+	color: white;
+	text-decoration: none;
+}
+
+#bottom-nav ul li a:visited {
+	color: white;
+	text-decoration: none;
 }
